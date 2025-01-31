@@ -100,25 +100,25 @@
               </div>
               
               <div class="form-group">
-                <label class="col-md-4 control-label" for="address">Address*</label>
+                <label class="col-md-4 control-label" for="address">Endereço*</label>
                 <div class="col-md-4">
-                  <input id="address1" name="address1" type="text" placeholder="Address Line 1*"
+                  <input id="address1" name="address1" type="text" placeholder="Endereço Linha 1*"
                                     class="form-control input-md">
-                  <input id="address2" name="address2" type="text" placeholder="Address Line 2"
+                  <input id="address2" name="address2" type="text" placeholder="Endereço Linha 2"
                                     class="form-control input-md">
-                  <input id="addressT" name="addressT" type="text" placeholder="Town*"
+                  <input id="addressT" name="addressT" type="text" placeholder="Cidade*"
                                     class="form-control input-md">
-                  <input id="addressC" name="addressC" type="text" placeholder="County/City*"
+                  <input id="addressC" name="addressC" type="text" placeholder="Estado/País*"
                                     class="form-control input-md">
-                  <input id="addressE" name="addressE" type="text" placeholder="Eircode*"
+                  <input id="addressE" name="addressE" type="text" placeholder="CEP*"
                                     class="form-control input-md">
-                  <span class="help-block">Please enter your Address</span>
+                  <span class="help-block">Por favor coloque seu Endereço</span>
                  </div>
                </div>
               
               <div class="form-group">
                 
-                <label class="col-md-11 control-label" style = "align: center">Areas marked with "*" must be answered.</label>
+                <label class="col-md-11 control-label" style = "align: center">Campos marcados com "*" precisam ser preenchidos.</label>
               </div>
               
               <!-- Submit -->
@@ -137,44 +137,7 @@
     <br />
 
     <!-- 
-        Bootstrap Styled Form: Add User to Database 
-        Generated using the Bootsnipp Form Builder and Generator for Bootstrap
-        https://bootsnipp.com/forms
-    -->
-    <div>
-      <div class="container">
-        <div class="row justify-content-center">
-          <form id="getUserDatabaseForm" class="form-horizontal">
-            <fieldset>
-              <!-- Form Name -->
-              <legend>Show User Database</legend>
-              
-              <!-- Textarea -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="showUserDatabase">User Database</label>
-                <div class="col-md-4">
-                  <textarea class="form-control" id="showUserDatabase"
-                            name="showUserDatabase">Retrieved Database displayed here</textarea>
-                              
-                 </div>
-               </div>
-              
-              <!-- Submit -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-4">
-                  <input type="submit" value="Get User Database" class="btn btn-primary">
-                </div>
-               </div>
-
-             </fieldset>
-           </form>
-         </div>
-       </div>
-    </div>
-
-    <!-- 
-        Modal Popup used to confirm User Data was sent and added to Database 
+        Modal Popup usado para enviar mensagem de sucesso no envio do formulario para o Banco de Dados 
         W3.CSS Styled Form generated using W3.CSS modal demos
         https://www.w3schools.com/w3css/w3css_modal.asp
     -->
@@ -183,11 +146,11 @@
             <header class="w3-container w3-blue-grey">
                 <span onclick="document.getElementById('modalUserAdded').style.display='none'"
                     class="w3-button w3-large w3-display-topright">&times;</span>
-                <h2>User Added to Database!</h2>
+                <h2>Usuário Cadastrado com Sucesso!</h2>
             </header>
             <div class="w3-container">
                 <p></p>
-                <p id="modalUserAddedMessage">Message Text</p>
+                <p id="modalUserAddedMessage">Usuário Cadastrado com Sucesso!</p>
             </div>
             <footer class="w3-container w3-blue-grey">
                 <p></p>

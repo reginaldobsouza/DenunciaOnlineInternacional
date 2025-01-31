@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "db";
+$username = "user";
+$password = "password";
 $dbname = "denuncia_online";
 
 // Criar conexão
@@ -28,5 +28,6 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
+header('Content-Type: application/json');
 echo json_encode($response);
 ?>
