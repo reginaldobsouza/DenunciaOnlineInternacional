@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Denúncia</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function confirmarEnvio() {
+            const denuncia = document.getElementById('denuncia').value;
+            if (confirm("Você deseja enviar a denúncia?")) {
+                sessionStorage.setItem('denuncia', denuncia);
+                window.location.href = 'confirmacao.html';
+            }
+        }
+
+        function enviarDenuncia() {
+            const denuncia = sessionStorage.getItem('denuncia');
+            if (denuncia) {
+                alert(`Denúncia enviada com sucesso. Iremos submeter sua denúncia para análise da Equipe Juridica - Denuncia Online e retornaremos o contato para lhe orientar e/ou confirmar o encaminhamento aos órgãos pertinentes. E, não se preocupe !! Sua denúncia é 100% Anônima.\n\nConteúdo da denúncia:\n${denuncia}`);
+                // Código para enviar a denúncia para o banco de dados
+                sessionStorage.removeItem('denuncia');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const denuncia = sessionStorage.getItem('denuncia');
+            if (denuncia) {
+                enviarDenuncia();
+                sessionStorage.removeItem('denuncia');
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Enviar Denúncia</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Preencha sua denúncia</h2>
+            <textarea id="denuncia" rows="10" cols="50"></textarea>
+            <button type="button" onclick="confirmarEnvio()">Enviar</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Denúncia Online Internacional. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

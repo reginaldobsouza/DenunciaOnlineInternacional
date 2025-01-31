@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denúncia Online Internacional</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function confirmarEnvio() {
+            if (confirm("Você deseja enviar a denúncia?")) {
+                mostrarMensagem();
+            }
+        }
+
+        function mostrarMensagem() {
+            alert("Denúncia enviada com sucesso. Iremos submeter sua denúncia para análise da Equipe Juridica - Denuncia Online e retornaremos o contato para lhe orientar e/ou confirmar o encaminhamento aos órgãos pertinentes. E, não se preocupe !! Sua denúncia é 100% Anônima.");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Denúncia Online Internacional</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Bem-vindo</h2>
+            <button id="abrirCadastro" onclick="window.location.href='cadastro.html'">Cadastrar Usuário</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Denúncia Online Internacional. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
