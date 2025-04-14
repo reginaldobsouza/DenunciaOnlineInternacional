@@ -243,3 +243,87 @@ form{ width: 100%; }
 
     .toggle-panel h1{font-size: 30px; }
 }
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+.welcome-message {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para a página welcome */
+body.welcome-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header.welcome-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+header.welcome-header button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+header.welcome-header button:hover {
+    background-color: #0056b3;
+}
+
+main.welcome-content {
+    text-align: center;
+    padding: 20px;
+}
+
+main.welcome-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+main.welcome-content p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.standard-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+.standard-button:hover {
+    background-color: #0056b3;
+}

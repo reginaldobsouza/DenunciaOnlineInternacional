@@ -1,160 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <title>AJAX Database Demo</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Use Bootstrap for the form styling -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- Use W3.CSS for the Modal -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  <!--For Require() Since it doesn't work in CodePen-->
-  <script src="https://requirejs.org/docs/release/2.3.6/r.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* Extra Styles for the Bootstrap Forms */
-        h1 {
-            font: 30px Verdana;
-            text-align: center;
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
-        h2 {
-            font: 20px Verdana;
-            text-align: center;
+        .form-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        legend {
-            padding: 10px;
-            font: 30px Verdana
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .welcome-content {
+            text-align: left; /* Alinha o conteúdo à esquerda */
+            margin-right: 60%; /* Garante que o texto fique separado da caixa de adicionar usuário */
+        }
+        .text-left {
+            text-align: left; /* Classe para alinhar texto à esquerda */
+        }
+        .error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
-
-<body>
-    <h1>Cadastro de Usuário</h1>
-    <h2>Precisamos de suas informações para validar sua Denúncia</h2>
-    <h2> Seus dados são sigilosos e protegidos por segurança pela LGPD.</h2>
-
-    <br />
-
-    <!-- 
-        Bootstrap Styled Form: Add User to Database 
-        Generated using the Bootsnipp Form Builder and Generator for Bootstrap
-        https://bootsnipp.com/forms
-    -->
-    <div>
-      <div class="container">
-        <div class="row justify-content-center">
-          <form id="addUserForm" class="form-horizontal">
-            <fieldset>
-              <!-- Form Name -->
-              <legend>Adicionando usuário ao banco de dados</legend>
-              
-              <!-- Text Input - Title -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="title">Título</label>
-                <div class="col-md-4">
-                  <input id="title" name="title" placeholder="Mx/Mr/Mrs/Ms/Dr or Other(specify)"
-                         class="form-control input-md">
-                  <span class="help-block">Como gostaria de ser chamado?</span>
-                 </div>
-              </div>
-              
-              <!-- Text Input - Primeiro Nome -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="firstname">Primeiro Nome*</label>
-                <div class="col-md-4">
-                  <input id="firstname" name="firstname" placeholder="Name"
-                                    class="form-control input-md">
-                  <span class="help-block">Por favor insira seu primeiro nome</span> 
-                 </div>
-               </div>
-              
-              <!-- Text Input - Sobrenome -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="surname">Sobrenome*</label>
-                <div class="col-md-4">
-                  <input id="surname" name="surname" type="text" placeholder="Surname"
-                                    class="form-control input-md">
-                  <span class="help-block">Por favor insira seu sobrenome</span>
-                 </div>
-               </div>
-                      
-              <!-- Text Input - Mobile Number -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="phoneNumber">Número de Telefone*</label>
-                <div class="col-md-4">
-                  <input id="phoneNumber" name="phoneNumber" placeholder="+55"
-                                    class="form-control input-md">
-                  <span class="help-block">Digite o numero do seu Telefone</span>
-                </div>
-              </div>
-
-              <!-- Text Input - Email -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="email">Endereço de Email*</label>
-                <div class="col-md-4">
-                  <input id="email" name="email" type="text" placeholder="Email Address"
-                                    class="form-control input-md">
-                  <span class="help-block">Please enter your Email Address</span>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="address">Endereço*</label>
-                <div class="col-md-4">
-                  <input id="address1" name="address1" type="text" placeholder="Endereço Linha 1*"
-                                    class="form-control input-md">
-                  <input id="address2" name="address2" type="text" placeholder="Endereço Linha 2"
-                                    class="form-control input-md">
-                  <input id="addressT" name="addressT" type="text" placeholder="Cidade*"
-                                    class="form-control input-md">
-                  <input id="addressC" name="addressC" type="text" placeholder="Estado/País*"
-                                    class="form-control input-md">
-                  <input id="addressE" name="addressE" type="text" placeholder="CEP*"
-                                    class="form-control input-md">
-                  <span class="help-block">Por favor coloque seu Endereço</span>
-                 </div>
-               </div>
-              
-              <div class="form-group">
-                
-                <label class="col-md-11 control-label" style = "align: center">Campos marcados com "*" precisam ser preenchidos.</label>
-              </div>
-              
-              <!-- Submit -->
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-4">
-                  <input type="submit" value="Send User Data" class="btn btn-primary">
-                </div>
-              </div>
+<body class="welcome-page">
+    <header class="welcome-header">
+        <button class="standard-button" onclick="window.history.back()">Voltar</button>
+        <button class="standard-button" onclick="window.location.href='index.html'">Login</button>
+    </header>
+    <main class="welcome-content">
+        <div class="text-left">
+            <h1>Cadastro de Usuário</h1>
+            <h2>Precisamos de suas informações para validar sua denúncia</h2>
+            <h2>Seus dados são sigilosos e protegidos por segurança pela LGPD.</h2>
+        </div>
+        <br />
+        <div class="form-container">
+            <div class="form-box">
+                <form id="addUserForm" class="form-horizontal">
+                    <fieldset>
+                        <legend>Digite abaixo os dados do denunciante que serão totalmente sigilosos</legend>
+                        <!-- Text Input - Title -->
+                        <div class="form-group">
+                            <label for="title">Título - Como deseja ser chamado ?</label>
+                            <input id="title" name="title" placeholder="Sr/Sra/Dr/Dra ou outro (especificar)" class="form-control">
+                            <span class="help-block">Como gostaria de ser chamado?</span>
+                        </div>
+                        <!-- Text Input - Primeiro Nome -->
+                        <div class="form-group">
+                            <label for="firstname">Primeiro Nome*</label>
+                            <input id="firstname" name="firstname" placeholder="Nome" class="form-control">
+                            <span class="help-block">Por favor insira seu primeiro nome</span>
+                        </div>
+                        <!-- Text Input - Sobrenome -->
+                        <div class="form-group">
+                            <label for="surname">Sobrenome*</label>
+                            <input id="surname" name="surname" placeholder="Sobrenome" class="form-control">
+                            <span class="help-block">Por favor insira seu sobrenome</span>
+                        </div>
+                        <!-- Text Input - Mobile Number -->
+                        <div class="form-group">
+                            <label for="phoneNumber">Número de Telefone*</label>
+                            <div style="display: flex; align-items: center;">
+                                <select id="countryCode" name="countryCode" class="form-control" style="width: 20%; margin-right: 10px;">
+                                    <option value="+55" data-flag="🇧🇷">🇧🇷 +55 (Brasil)</option>
+                                    <option value="+1" data-flag="🇺🇸">🇺🇸 +1 (EUA)</option>
+                                    <option value="+44" data-flag="🇬🇧">🇬🇧 +44 (Reino Unido)</option>
+                                    <option value="+33" data-flag="🇫🇷">🇫🇷 +33 (França)</option>
+                                    <option value="+49" data-flag="🇩🇪">🇩🇪 +49 (Alemanha)</option>
+                                    <option value="+351" data-flag="🇵🇹">🇵🇹 +351 (Portugal)</option>
+                                    <option value="+34" data-flag="🇪🇸">🇪🇸 +34 (Espanha)</option>
+                                    <option value="+39" data-flag="🇮🇹">🇮🇹 +39 (Itália)</option>
+                                    <option value="+57" data-flag="🇨🇴">🇨🇴 +57 (Colômbia)</option>
+                                    <option value="+58" data-flag="🇻🇪">🇻🇪 +58 (Venezuela)</option>
+                                    <option value="+595" data-flag="🇵🇾">🇵🇾 +595 (Paraguai)</option>
+                                </select>
+                                <input id="phoneNumber" name="phoneNumber" placeholder="Número de Telefone" class="form-control" style="width: 80%;">
+                            </div>
+                            <span class="help-block">Digite o número do seu telefone</span>
+                        </div>
+                        <!-- Text Input - Email -->
+                        <div class="form-group">
+                            <label for="email">Endereço de Email*</label>
+                            <input id="email" name="email" placeholder="Endereço de Email" class="form-control" type="email" required>
+                            <span class="help-block">Por favor insira um endereço de email válido</span>
+                        </div>
+                        <!-- Text Input - Endereço -->
+                        <div class="form-group">
+                            <label for="address">Endereço*</label>
+                            <input id="address1" name="address1" placeholder="Endereço Linha 1*" class="form-control">
+                            <input id="address2" name="address2" placeholder="Endereço Linha 2" class="form-control">
+                            <input id="addressT" name="addressT" placeholder="Cidade*" class="form-control">
+                            <input id="addressC" name="addressC" placeholder="Estado/País*" class="form-control">
+                            <input id="addressE" name="addressE" placeholder="CEP*" class="form-control" pattern="\d{5}-\d{3}" required>
+                            <span class="help-block">Por favor insira um CEP válido no formato 12345-678</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Campos marcados com "*" precisam ser preenchidos.</label>
+                        </div>
+                        <!-- Submit -->
+                        <div class="form-group">
+                            <button type="submit" class="standard-button">Enviar Dados</button>
+                        </div>
                     </fieldset>
                 </form>
             </div>
         </div>
-    </div>
+    </main>
+    <script>
+        document.getElementById('addUserForm').addEventListener('submit', function(event) {
+            const emailField = document.getElementById('email');
+            const cepField = document.getElementById('addressE');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const cepRegex = /^\d{5}-\d{3}$/;
 
-    <br />
+            let isValid = true;
 
-    <!-- 
-        Modal Popup usado para enviar mensagem de sucesso no envio do formulario para o Banco de Dados 
-        W3.CSS Styled Form generated using W3.CSS modal demos
-        https://www.w3schools.com/w3css/w3css_modal.asp
-    -->
-    <div id="modalUserAdded" class="w3-modal w3-animate-opacity">
-        <div class="w3-modal-content w3-card-4">
-            <header class="w3-container w3-blue-grey">
-                <span onclick="document.getElementById('modalUserAdded').style.display='none'"
-                    class="w3-button w3-large w3-display-topright">&times;</span>
-                <h2>Usuário Cadastrado com Sucesso!</h2>
-            </header>
-            <div class="w3-container">
-                <p></p>
-                <p id="modalUserAddedMessage">Usuário Cadastrado com Sucesso!</p>
-            </div>
-            <footer class="w3-container w3-blue-grey">
-                <p></p>
-            </footer>
-        </div>
-    </div>
+            // Reset errors
+            emailField.classList.remove('error');
+            cepField.classList.remove('error');
+            const emailError = document.getElementById('emailError');
+            const cepError = document.getElementById('cepError');
+            if (emailError) emailError.remove();
+            if (cepError) cepError.remove();
+
+            // Validate email
+            if (!emailRegex.test(emailField.value)) {
+                isValid = false;
+                emailField.classList.add('error');
+                const errorMessage = document.createElement('div');
+                errorMessage.id = 'emailError';
+                errorMessage.className = 'error-message';
+                errorMessage.textContent = 'Por favor, insira um endereço de email válido.';
+                emailField.parentNode.appendChild(errorMessage);
+            }
+
+            // Validate CEP
+            if (!cepRegex.test(cepField.value)) {
+                isValid = false;
+                cepField.classList.add('error');
+                const errorMessage = document.createElement('div');
+                errorMessage.id = 'cepError';
+                errorMessage.className = 'error-message';
+                errorMessage.textContent = 'Por favor, insira um CEP válido no formato 12345-678.';
+                cepField.parentNode.appendChild(errorMessage);
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
+</html>
