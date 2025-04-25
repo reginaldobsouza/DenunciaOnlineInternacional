@@ -1,0 +1,4 @@
+com\denunciaonlineinternacional\controller\MainController.class
+com\denunciaonlineinternacional\service\UserService.class
+com\denunciaonlineinternacional\model\User.class
+com\denunciaonlineinternacional\DenunciaOnlineInternacionalApplication.class

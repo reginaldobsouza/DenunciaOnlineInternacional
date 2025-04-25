@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DenunciaOnlineInternacionalApplication<com.denunciaonlineinternacional-DenunciaOnlineInternacional>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.denunciaonlineinternacional.DenunciaOnlineInternacionalApplication",
+            "projectName": "com.denunciaonlineinternacional-DenunciaOnlineInternacional",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
